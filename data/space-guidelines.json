@@ -1,0 +1,127 @@
+{
+  "sqftToM2": 0.09290304,
+  "inchToCm": 2.54,
+  "flockMin": 1,
+  "flockMax": 40,
+  "chart": { "bird": "standard", "housing": "run", "from": 2, "to": 20 },
+  "rspcaUk": {
+    "preferredM2": 1,
+    "maxBirdsPerM2": 3,
+    "nestPer": 5,
+    "nestMinBoxes": 2,
+    "roostCm": 15
+  },
+  "rspcaAu": {
+    "baseM2": 3,
+    "includedLarge": 3,
+    "includedBantam": 6,
+    "extraLargeM2": 0.4,
+    "extraBantamM2": 0.3,
+    "roostCm": 15,
+    "heavyPerchHeightCm": 30,
+    "nestFewerPer": 4,
+    "nestMorePer": 2,
+    "blogM2Low": 2,
+    "blogM2High": 3.5
+  },
+  "bhwt": {
+    "runExCageM2": 1,
+    "runOtherM2": 2,
+    "roostCm": 25
+  },
+  "osu": {
+    "withOutdoorSqft": 3,
+    "indoorLow": 8,
+    "indoorHigh": 10,
+    "roostLowIn": 5,
+    "roostHighIn": 10,
+    "nestPer": 4
+  },
+  "uf": {
+    "coopSqft": 3,
+    "runLow": 8,
+    "runHigh": 10,
+    "nestPer": 5
+  },
+  "udel": {
+    "coopLow": 2,
+    "coopHigh": 3,
+    "runLow": 8,
+    "runHigh": 10,
+    "nestFewerPer": 4,
+    "nestMorePer": 3
+  },
+  "umn": {
+    "coopLow": 3,
+    "coopHigh": 5,
+    "nestFewerPer": 5,
+    "nestMorePer": 4,
+    "roostIn": 9
+  },
+  "psu": {
+    "adultLow": 1.5,
+    "adultHigh": 3,
+    "nestFirstHens": 4,
+    "nestFirstBoxes": 2,
+    "nestAdditionalHens": 4,
+    "birds": {
+      "bantam": { "coop": 1, "run": 4, "roostIn": 4 },
+      "standard": { "coop": 1.5, "run": 8, "roostIn": 6 },
+      "large": { "coop": 2, "run": 10, "roostIn": null }
+    }
+  },
+  "sources": [
+    {
+      "id": "psu-housing",
+      "url": "https://extension.psu.edu/small-scale-poultry-housing"
+    },
+    {
+      "id": "psu-growth",
+      "url": "https://extension.psu.edu/space-should-increase-as-birds-grow"
+    },
+    {
+      "id": "osu",
+      "url": "https://extension.oregonstate.edu/catalog/ec-1644-living-land-backyard-chicken-coop-design"
+    },
+    {
+      "id": "uf",
+      "url": "https://ask.ifas.ufl.edu/publication/AN239/pdf"
+    },
+    {
+      "id": "udel",
+      "url": "https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/steam-team-chicken-housing-and-coop-maintenance/"
+    },
+    {
+      "id": "umn-eggs",
+      "url": "https://extension.umn.edu/agriculture/animals-and-livestock/poultry/raising-chickens-for-eggs"
+    },
+    {
+      "id": "umn-cold",
+      "url": "https://extension.umn.edu/agriculture/animals-and-livestock/poultry/caring-for-chickens-in-cold-weather"
+    },
+    {
+      "id": "rspca-uk",
+      "url": "https://www.rspca.org.uk/adviceandwelfare/pets/chickens"
+    },
+    {
+      "id": "rspca-au",
+      "url": "https://kb.rspca.org.au/knowledge-base/what-housing-do-i-need-for-my-chickens/"
+    },
+    {
+      "id": "rspca-au-blog",
+      "url": "https://www.rspca.org.au/latest-news/blog/more-caring-chooks-room-spread-their-wings/"
+    },
+    {
+      "id": "bhwt-setup",
+      "url": "https://www.bhwt.org.uk/adopt-hens/hen-setup/"
+    },
+    {
+      "id": "bhwt-faq",
+      "url": "https://www.bhwt.org.uk/adopt-hens/hen-adoption-faqs/"
+    },
+    {
+      "id": "parry-sound",
+      "url": "https://www.parrysound.ca/town-services/animal-services/backyard-hens/"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "siteName": "Backyard Coop Guide",
+  "tagline": "Coop and run sizing for backyard flocks, with the sources named.",
+  "baseUrl": "https://seftol.github.io/Chicken-coop-guide",
+  "basePath": "/Chicken-coop-guide",
+  "lang": "en",
+  "repository": "https://github.com/Seftol/Chicken-coop-guide",
+  "description": "Independent guides to backyard chicken housing. Measurements are in imperial and metric, and every figure is tied to a public source."
+}

@@ -1,0 +1,134 @@
+---
+title: How much space do chickens need?
+description: Coop floor, run area, nest boxes, and roost length for backyard chickens, in square feet and square metres, with the sources and where they disagree.
+path: /coop-and-run-size/
+updated: 2026-11-18
+published: 2026-11-18
+schema: article
+nav: true
+nav_label: Coop size
+nav_order: 20
+affiliate: false
+sitemap: true
+---
+<h1>How much space do chickens need?</h1>
+<p>There is no single allowance. Penn State Extension’s housing table lists 1.5 square feet of indoor floor and 8 square feet of run per laying hen. Oregon State and the University of Florida use about 3 square feet indoors when birds can go outside, and Florida suggests 8–10 square feet of run. The RSPCA in the UK asks for at least 1 square metre of housing per bird where that is possible. The RSPCA in Australia publishes a combined coop-and-run minimum that works out differently again, and a 2021 article from the same organisation states a higher per-hen figure.</p>
+<p>This page puts those published figures side by side and multiplies them by flock size. It does not average them into a number nobody published. It is not a record of birds we keep, and it is not a measurement of coops we have built. Adult birds only: chicks need less floor at first and more as they grow, which <a href="https://extension.psu.edu/space-should-increase-as-birds-grow">Penn State’s growth article</a> sets out separately.</p>
+
+<h2 id="calculator">Calculator</h2>
+<p>Choose a flock size, a bird size, and where the birds will spend the day. Free-range and coop-and-run use the same coop-floor sources. A yard does not shrink the coop. What changes is whether a run is the outdoor plan, an optional enclosure, or absent. “Indoors only” switches the coop to the figure Oregon State states for birds with no outdoor access.</p>
+<p>The RSPCA in the UK recommends keeping at least three hens. The arithmetic below still runs for one or two. Nest counts assume the birds are laying hens. Roosters do not need a nest box.</p>
+<form id="coop-calculator" class="calc">
+  <div class="field">
+    <label for="flock-size">Number of adult birds</label>
+    <input id="flock-size" name="flock-size" type="number" inputmode="numeric" min="1" max="40" value="6" required>
+    <p class="hint">Whole numbers from 1 to 40. The chart further down covers 2–20 standard hens and does not need JavaScript.</p>
+  </div>
+  <fieldset>
+    <legend>Bird size</legend>
+    <label class="choice">
+      <input type="radio" name="bird" value="bantam">
+      <span>Bantam <small>Penn State’s bantam row. The other extension pages cited here do not publish a separate bantam allowance.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="bird" value="standard" checked>
+      <span>Standard laying hen <small>The usual backyard layer, and the bird most of the extension pages are describing.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="bird" value="large">
+      <span>Large chicken <small>Penn State’s “large chickens” row, heavier than the laying-hen row in the same table.</small></span>
+    </label>
+  </fieldset>
+  <fieldset>
+    <legend>Where they spend the day</legend>
+    <label class="choice">
+      <input type="radio" name="housing" value="freerange">
+      <span>Free-range by day <small>A yard outside the coop, shut in at night. No cited source gives a square-foot size for the yard itself.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="housing" value="run" checked>
+      <span>Coop and run <small>An enclosed run is the outdoor space. This is the usual backyard setup, and the one prefab listings are selling.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="housing" value="indoor">
+      <span>Indoors only <small>No outdoor access. Oregon State’s indoor figure changes for this case.</small></span>
+    </label>
+  </fieldset>
+  <button type="submit">Update figures</button>
+  <div id="calc-results" aria-live="polite"></div>
+</form>
+<noscript>
+  <p>The calculator needs JavaScript. The reference chart in the next section is in the page and works without it. It covers standard laying hens kept with a coop and a run.</p>
+</noscript>
+<script src="/assets/calculator.js" defer></script>
+
+<h2 id="chart">Reference chart for 2–20 standard hens</h2>
+<p>The long chart is standard laying hens with a coop and a run. The 1.5 square foot column is Penn State’s laying-hen minimum. The 3 square foot column is the rate where Oregon State (when birds have outdoor access), Florida’s house minimum, and the top of Penn State’s adult indoor range meet. The 5 square foot column is the top of Minnesota’s indoor range. Delaware’s 2–3 square feet sits inside that span and is not a separate column; the calculator lists it.</p>
+<p>Run columns are 8 square feet (Penn State’s laying-hen minimum, also the low end of the Florida and Delaware range) and 10 square feet (the high end of that Florida and Delaware range). Square metres are square feet × 0.09290304, rounded to two decimal places. One inch is 2.54 centimetres.</p>
+<div id="space-chart" data-chart="standard-run"></div>
+
+<h2 id="sources-say">What the sources actually say</h2>
+<h3>United States extension services</h3>
+<p><a href="https://extension.psu.edu/small-scale-poultry-housing">Penn State Extension’s Small Scale Poultry Housing</a> (Gregory P. Martin and Phillip Clauer, updated 25 June 2026) prints a minimum-space table. Bantams: 1 square foot indoors and 4 in an outside run. Laying hens: 1.5 and 8. Large chickens: 2 and 10. Standard chickens get 6 inches of roost; bantams get 4 inches. Nests are at least 12 by 12 inches, two for the first four hens, then one more for every four additional hens. The same page says perches should not be used for large, structured, or meaty breeds, because of the landing.</p>
+<p><a href="https://extension.psu.edu/space-should-increase-as-birds-grow">A second Penn State article</a> (Emily Shoop and Phillip Clauer, updated 16 June 2026, reviewed by Torey Fischer) gives indoor floor by age. From eight weeks on, the minimum is 1.5–3 square feet per bird, with a note that larger breeds may need more. It says to count indoor floor only. Birds are inside at night and in bad weather, so an outdoor run is not part of that indoor allowance.</p>
+<p><a href="https://extension.oregonstate.edu/catalog/ec-1644-living-land-backyard-chicken-coop-design">Oregon State University Extension, EC 1644</a> (Dani Annala, Brian Tuck, Susan Kerr, Ellen Hammond, and Shilah Olson; published April 2014, reviewed 2023) says at least 3 square feet per bird if there is a run or other outdoor access, and 8–10 square feet per bird if there is no outdoor access. Roost poles: 5–10 inches per bird. One nest box for about every four birds, about 12 by 12 by 12 inches. It does not publish a bantam or heavy-breed split, except that Silkie roosts should sit lower.</p>
+<p><a href="https://ask.ifas.ufl.edu/publication/AN239/pdf">University of Florida IFAS, AN239</a> (Mary E. Henry, Jessica M. Ryals, Alicia Halbritter, and Derek L. Barber; the PDF’s own line says originally April 2010, revised November 2019 and November 2023) says the house should provide a minimum of 3 square feet of floor per bird, and suggests 8–10 square feet of run per bird. One 12 by 12 by 12 inch nest for every five hens. It notes that dual-purpose birds are larger than smaller laying breeds and may need more space. It does not give the second number, and it does not state a roost length.</p>
+<p><a href="https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/steam-team-chicken-housing-and-coop-maintenance/">University of Delaware Cooperative Extension</a> (Twila Parish-Short, May 2025) is a short fact sheet: 2–3 square feet inside, 8–10 square feet of run, and one nest per 3–4 hens. No roost length.</p>
+<p><a href="https://extension.umn.edu/agriculture/animals-and-livestock/poultry/raising-chickens-for-eggs">University of Minnesota Extension</a> (Betsy Wieland, Nora Nolden, and Sabrina Florentino; reviewed in 2025) says a minimum of 3–5 square feet of indoor space per bird, and one nest per 4–5 birds. The page is about layers that are let out in the morning. It does not give a run size. A <a href="https://extension.umn.edu/agriculture/animals-and-livestock/poultry/caring-for-chickens-in-cold-weather">cold-weather page</a> from the same extension (Colleen Carlson and Hannah Lochner; reviewed in 2026) says roosts generally need 9 inches per chicken. That is a length, from a winter-care article, not a separate summer rule.</p>
+<h3>United Kingdom</h3>
+<p>The <a href="https://www.rspca.org.uk/adviceandwelfare/pets/chickens">RSPCA’s pet-chicken page</a> says housing of at least 1 square metre per bird should be provided where possible. If that is not possible, birds should be stocked at no more than three per square metre of coop. Three birds per square metre is one third of a square metre each, which is 3.59 square feet. One square metre is 10.76 square feet. Perches: from 15 centimetres per chicken (about 5.9 inches), around 3–5 centimetres wide, with about 40 centimetres given as a height that lets them feel safe. Nest boxes: at least one per five hens, at least two for any group, each at least 30 by 30 by 30 centimetres. The page describes what a run needs and does not give the run a number. It also recommends at least three hens.</p>
+<p>The <a href="https://www.bhwt.org.uk/adopt-hens/hen-setup/">British Hen Welfare Trust’s setup page</a> and its <a href="https://www.bhwt.org.uk/adopt-hens/hen-adoption-faqs/">adoption FAQ</a> agree on the run and the perch. Ex-caged hens need 1 square metre of clear run floor each. Hens from other systems need 2 square metres. Clear floor does not include space under the coop or the space taken by drinkers and feeders. Perch: 25 centimetres per hen, about 9.8 inches. The Trust rehomes ex-commercial hens and describes them as medium-sized, so those run rates are applied in the calculator only to the standard-hen choice.</p>
+
+<h3>Australia</h3>
+<p>The <a href="https://kb.rspca.org.au/knowledge-base/what-housing-do-i-need-for-my-chickens/">RSPCA Australia knowledgebase</a> (updated 19 September 2023) gives one minimum for the coop and the run together: 3 square metres for up to three large birds or six bantams, then at least 0.4 square metres more for each additional large bird and 0.3 square metres more for each additional small bird. “Large” means not a bantam. If the birds only use that housing at night and range by day, the page says this minimum can be suitable. If they live in the enclosure most of the time, it says the enclosure must be significantly larger, and it does not say how much larger. Roosts: at least 15 centimetres per bird. Heavier chickens should have lower perches, about 30 centimetres off the floor. Nests: at least one box per 2–4 hens, about 30 by 30 centimetres.</p>
+<p>For three large birds the formula is 3 square metres, or 1 square metre each. For six it is 3 + (3 × 0.4) = 4.2 square metres, or 0.7 square metres each. The minimum per bird falls as the flock grows past three, because the first 3 square metres is a base for the group, not a rate. A <a href="https://www.rspca.org.au/latest-news/blog/more-caring-chooks-room-spread-their-wings/">2021 RSPCA Australia article</a> says something else: at least 2–3.5 square metres each, and ideally more. That article is older and higher. The calculator shows both for standard and large birds and does not average them. The 2021 article does not give a bantam figure, so it is not applied to bantams. The 2023 formula is.</p>
+
+<h2 id="disagree">Where they disagree</h2>
+<p>The disagreement is not a small rounding difference. For one standard hen with a run, the indoor figures on the pages above run from 1.5 square feet (Penn State’s table) through 2–3 (Delaware), 3 (Oregon State, Florida, and the top of Penn State’s adult range), and 3–5 (Minnesota), while the RSPCA in the UK prefers 1 square metre, 10.76 square feet, of housing. The British Hen Welfare Trust’s indoor wording is a separate problem, covered below, and is not used as a floor area.</p>
+<p>Read by job, the split makes more sense. Several US pages treat the coop as night housing plus a bad-weather room, and they put daytime space in the run: commonly 8–10 square feet, which is 0.74–0.93 square metres. The UK welfare charity that rehomes hens puts a large number on the run (1 or 2 square metres of clear floor, 10.76 or 21.53 square feet) and a short number on the perch. The RSPCA in the UK puts the large number on the house and publishes no run area. Using one of those systems and ignoring the other produces a coop that one of the sources would call too small, or a run that another source never required. The calculator keeps the systems in separate tables for that reason.</p>
+<p>Indoors only is a different branch, and only Oregon State labels it. With no outdoor access, that page says 8–10 square feet per bird, not 3. Penn State’s 1.5–3 square feet is still an indoor range, but the growth article does not call it the allowance for a flock that never goes out. Florida’s 3 square feet is paired, in the same publication, with an 8–10 square foot run. Those lower indoor figures stay visible under “Indoors only” so they are not hidden, and they are labeled as not the indoors-only rate.</p>
+<p>Nest counts disagree as well. One box per five hens (Florida, and the RSPCA in the UK before its minimum of two boxes) is fewer boxes than one per four (Oregon State), one per 3–4 (Delaware), or one per 2–4 (RSPCA Australia). Penn State’s “two nests for the first four hens” gives a pair of boxes to a very small flock, which the one-per-five rule does not. For six hens the US and UK counts cluster around two or three boxes. For twenty hens, Penn State’s rule gives six boxes, one-per-five gives four, and the generous end of the Australian “one per two hens” gives ten. The chart shows three of those rules. The calculator shows all of them.</p>
+<p>Roost length for a standard hen runs from 5 inches (Oregon State’s low end) to 10 inches (its high end). Inside that span: Penn State at 6 inches, the RSPCA at 15 centimetres (about 5.9 inches), Minnesota at 9 inches, and the British Hen Welfare Trust at 25 centimetres (about 9.8 inches). Height is a further disagreement and is not what the chart multiplies: Penn State puts standard roosts 18–24 inches off the floor and bantam roosts 12–18 inches, and says not to let birds perch more than 4 feet up. The UK RSPCA mentions about 40 centimetres. RSPCA Australia says at least 50 centimetres, lower for heavier birds.</p>
+<p>On heavy birds, Penn State and RSPCA Australia do not give the same instruction. Penn State says not to use perches for large, structured, or meaty breeds. RSPCA Australia still wants perches for heavier chickens, set at about 30 centimetres. The calculator states both when “large chicken” is selected. It does not invent a longer roost to split the difference.</p>
+<p>The Trust’s indoor floor line is not in the calculator because the Trust’s own pages do not match each other. The setup page says a minimum of “30 sq centimetres” per hen. The FAQ says “30cm squared”. Thirty square centimetres is a few square inches. Thirty centimetres squared, if that is what the FAQ means, is 0.09 square metres, close to 1 square foot. Neither page explains the clash. The run areas and the 25 centimetre perch are worded the same way on both pages, so those are the Trust figures the calculator uses.</p>
+
+<h2 id="listings">Why “fits 5–10 chickens” is a weak claim</h2>
+<p>A listing that says a coop fits 5–10 chickens has already named two flocks. At 10 birds, each bird gets half the floor it would get at 5, because the floor did not change. Half is not a matter of opinion. It is the listing’s own range. The same is true of “6–8” or “4–6”. The honest check is to divide the usable indoor floor by the larger number, then do it again with the smaller number, and compare both results with the sources above. Do the same for the run, and do not count wire outdoor area as indoor floor.</p>
+<figure>
+  <blockquote cite="https://extension.psu.edu/space-should-increase-as-birds-grow">
+    <p>I have seen a 2-foot x 2-foot (4 sq. ft.) indoor box (coop) and a 3-foot x 4-foot (12 sq. ft.) outdoor wire-covered run advertised to accommodate 6 to 8 laying hens. That means only ½ sq. ft of inside space per hen. That is not acceptable and means some birds will not be allowed in the coop.</p>
+  </blockquote>
+  <figcaption>Emily Shoop and Phillip Clauer, <a href="https://extension.psu.edu/space-should-increase-as-birds-grow">Space Should Increase as Birds Grow</a>, Penn State Extension.</figcaption>
+</figure>
+<p>The arithmetic of that example, including the end of the range the quotation folds into one half square foot: 2 × 2 is 4 square feet indoors. Divided by 8 hens, that is 0.5 square feet each. Divided by 6, it is 0.67. Penn State’s own adult indoor range on that page is 1.5–3 square feet, so the advertised coop is about a third of the low end at eight hens, and under half of it at six. The run is 3 × 4 = 12 square feet, which is 2 square feet per hen at six birds and 1.5 at eight. The housing table’s laying-hen run is 8 square feet. The article’s objection is the indoor figure, and it says an outdoor run must not be used to paper over a coop that is too small.</p>
+<p>The British Hen Welfare Trust tells adopters to read a manufacturer’s range from the small end. On the setup page it says to “always look at the smallest number of hens suggested by the manufacturer”, and gives the example of a coop sold for 3–5 hens, which it would treat as suitable for 3 ex-commercial hens. The FAQ’s version of the same caution: if you want four hens, buy a house sold for six. The setup page also says some wooden coops are sold with a small attached run that is not suitable, because the birds need much more space, and that space under the coop or under drinkers and feeders is not clear floor.</p>
+<p>RSPCA Australia’s 2021 article says plainly that many commercially sold chicken coops are too small and do not provide adequate space. Its 2–3.5 square metres per hen is an enclosure, not a sleeping cupboard with a wire porch. A porch of a few square feet does not meet it.</p>
+<p>This section is not a survey. We have not counted what share of listings overstate capacity, and we have not measured a product line. The Penn State passage is one educator’s report of an advertisement. The Trust’s rule is adoption policy for the hens it places. The way to use both on any current listing, including one that says “fits 5–10”, is the division above. Usable floor, divided by the high number in the range, compared with the rows in the calculator. Capacity printed on a box is not one of those rows.</p>
+
+<h2 id="local-rules">Local rules are a separate number</h2>
+<p>Extension figures are not a permit. <a href="https://www.parrysound.ca/town-services/animal-services/backyard-hens/">The Town of Parry Sound, Ontario</a>, requires at least 0.37 square metres of indoor floor and 0.92 square metres of outdoor enclosure per hen under its backyard hen by-law. Using this page’s conversion, 0.37 square metres is 3.98 square feet and 0.92 square metres is 9.90 square feet. The indoor figure is above Penn State’s 1.5 square foot minimum and near the 3 square foot rate from Oregon State and Florida. The outdoor figure is near the 10 square foot end of the Florida and Delaware run range.</p>
+<p>That is one town’s rule, as published on its site, not a finding about chickens in Canada generally. Another municipality can require more, less, or no poultry at all. The space a bird needs and the space a city allows are both real constraints. The calculator answers only the first.</p>
+
+<h2 id="limits">What this page does not decide</h2>
+<p>It does not size housing for chicks. Penn State’s growth article starts them at 0.25 square feet and steps the floor up with age until the adult indoor range. A brooder that is legal for week one is not a coop for a layer.</p>
+<p>It does not give a breed-by-breed table beyond bantam, standard laying hen, and Penn State’s large-chicken row. Florida’s comment that dual-purpose birds may need more space than smaller layers is noted in the calculator and left without a number, because the publication does not supply one.</p>
+<p>It does not turn a winter into a new formula. Penn State’s point about bad weather is that indoor floor still has to be enough when the birds stay in, not that the summer coop may be smaller. Minnesota’s winter page talks about birds that would rather not go out in snow. It does not publish a different floor area for January. If a free-range flock will spend cold weeks shut in, the indoors-only result is the Oregon State case to read, and the with-outdoor coop result is still the night-housing case. They are different questions.</p>
+<p>Ventilation, dry litter, and predators are in the same extension pages and are not calculated here. Floor area does not fix a wet, closed shed. This page is not veterinary advice.</p>
+
+<h2 id="references">References</h2>
+<p>Pages were read on 18 November 2026. Dates in the entries are the dates those pages print.</p>
+<ol class="references">
+  <li>Gregory P. Martin and Phillip Clauer. “Small Scale Poultry Housing.” Penn State Extension. Updated 25 June 2026. <a href="https://extension.psu.edu/small-scale-poultry-housing">https://extension.psu.edu/small-scale-poultry-housing</a></li>
+  <li>Emily Shoop and Phillip Clauer. “Space Should Increase as Birds Grow.” Penn State Extension. Updated 16 June 2026. Reviewed by Torey Fischer. <a href="https://extension.psu.edu/space-should-increase-as-birds-grow">https://extension.psu.edu/space-should-increase-as-birds-grow</a></li>
+  <li>Dani Annala, Brian Tuck, Susan Kerr, Ellen Hammond, and Shilah Olson. “Living on the Land: Backyard Chicken Coop Design.” Oregon State University Extension Service, EC 1644. Published April 2014, reviewed 2023. <a href="https://extension.oregonstate.edu/catalog/ec-1644-living-land-backyard-chicken-coop-design">https://extension.oregonstate.edu/catalog/ec-1644-living-land-backyard-chicken-coop-design</a></li>
+  <li>Mary E. Henry, Jessica M. Ryals, Alicia Halbritter, and Derek L. Barber. “Raising Backyard Chickens for Eggs.” UF/IFAS Extension, AN239. PDF revision line: April 2010, revised November 2019 and November 2023. <a href="https://ask.ifas.ufl.edu/publication/AN239/pdf">https://ask.ifas.ufl.edu/publication/AN239/pdf</a></li>
+  <li>Twila Parish-Short. “Steam Team: Chicken Housing and Coop Maintenance.” University of Delaware Cooperative Extension. May 2025. <a href="https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/steam-team-chicken-housing-and-coop-maintenance/">https://www.udel.edu/academics/colleges/canr/cooperative-extension/fact-sheets/steam-team-chicken-housing-and-coop-maintenance/</a></li>
+  <li>Betsy Wieland, Nora Nolden, and Sabrina Florentino. “Raising chickens for eggs.” University of Minnesota Extension. Reviewed in 2025. <a href="https://extension.umn.edu/agriculture/animals-and-livestock/poultry/raising-chickens-for-eggs">https://extension.umn.edu/agriculture/animals-and-livestock/poultry/raising-chickens-for-eggs</a></li>
+  <li>Colleen Carlson and Hannah Lochner. “Caring for chickens in cold weather.” University of Minnesota Extension. Reviewed in 2026. <a href="https://extension.umn.edu/agriculture/animals-and-livestock/poultry/caring-for-chickens-in-cold-weather">https://extension.umn.edu/agriculture/animals-and-livestock/poultry/caring-for-chickens-in-cold-weather</a></li>
+  <li>RSPCA. “Keeping chickens and hens as pets.” <a href="https://www.rspca.org.uk/adviceandwelfare/pets/chickens">https://www.rspca.org.uk/adviceandwelfare/pets/chickens</a></li>
+  <li>RSPCA Australia. “What housing do I need for my chickens?” Knowledgebase. Updated 19 September 2023. <a href="https://kb.rspca.org.au/knowledge-base/what-housing-do-i-need-for-my-chickens/">https://kb.rspca.org.au/knowledge-base/what-housing-do-i-need-for-my-chickens/</a></li>
+  <li>RSPCA Australia. “More to caring for chooks than room to spread their wings.” 18 May 2021. <a href="https://www.rspca.org.au/latest-news/blog/more-caring-chooks-room-spread-their-wings/">https://www.rspca.org.au/latest-news/blog/more-caring-chooks-room-spread-their-wings/</a></li>
+  <li>British Hen Welfare Trust. “Getting set up to adopt hens.” <a href="https://www.bhwt.org.uk/adopt-hens/hen-setup/">https://www.bhwt.org.uk/adopt-hens/hen-setup/</a></li>
+  <li>British Hen Welfare Trust. “Hen adoption FAQs.” <a href="https://www.bhwt.org.uk/adopt-hens/hen-adoption-faqs/">https://www.bhwt.org.uk/adopt-hens/hen-adoption-faqs/</a></li>
+  <li>Town of Parry Sound. “Backyard Hens.” By-law 2021-7164, as described on the town’s page. <a href="https://www.parrysound.ca/town-services/animal-services/backyard-hens/">https://www.parrysound.ca/town-services/animal-services/backyard-hens/</a></li>
+</ol>
