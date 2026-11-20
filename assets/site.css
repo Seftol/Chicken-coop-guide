@@ -298,9 +298,23 @@ figcaption {
   margin-bottom: 0.3rem;
 }
 
+.field + .field {
+  margin-top: 0.85rem;
+}
+
 .field input[type="number"] {
   font: inherit;
   width: min(100%, 8rem);
+  min-height: 44px;
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.field input[type="time"] {
+  font: inherit;
+  width: min(100%, 11rem);
   min-height: 44px;
   padding: 0.4rem 0.55rem;
   border: 1px solid var(--line);
