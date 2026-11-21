@@ -40,6 +40,7 @@ class SiteBuildTests(unittest.TestCase):
             "privacy/index.html",
             "affiliate-disclosure/index.html",
             "coop-and-run-size/index.html",
+            "guides/index.html",
             "404.html",
             "sitemap.xml",
             "robots.txt",
@@ -77,6 +78,7 @@ class SiteBuildTests(unittest.TestCase):
             "index.html",
             "about/index.html",
             "coop-and-run-size/index.html",
+            "guides/index.html",
         ):
             self.assertNotIn(banner, self.read(relative))
 
@@ -91,6 +93,7 @@ class SiteBuildTests(unittest.TestCase):
         self.assertIn('content="noindex, follow"', missing)
         sitemap = self.read("sitemap.xml")
         self.assertIn(f"{self.config['baseUrl']}/coop-and-run-size/", sitemap)
+        self.assertIn(f"{self.config['baseUrl']}/guides/", sitemap)
         self.assertNotIn("404.html", sitemap)
         robots = self.read("robots.txt")
         self.assertIn(f"Sitemap: {self.config['baseUrl']}/sitemap.xml", robots)
@@ -117,6 +120,71 @@ class SiteBuildTests(unittest.TestCase):
             if url.rstrip("/") == "https://schema.org":
                 continue
             self.assertIn(url, allowed, url)
+
+    def test_guide_index_lists_articles_from_frontmatter(self):
+        page = self.read("guides/index.html")
+        self.assertIn("<h1>All guides</h1>", page)
+        self.assertNotIn("data-affiliate", page)
+        base = self.config["basePath"]
+        self.assertIn(f'<a href="{base}/guides/" aria-current="page">Guides</a>', page)
+        listing = page.split('<ul class="guide-index" id="guide-index">', 1)[1].split("</ul>", 1)[0]
+        titles = (
+            "How much space do chickens need?",
+            "Why did my chickens stop laying? A checklist with sources",
+            "How many chickens do I need for eggs? A calculator with sources",
+        )
+        blurbs = (
+            "Coop floor, run area, nest boxes, and roost length for backyard chickens",
+            "A checklist for backyard keepers whose hens stop laying",
+            "Work out how many hens you need for the eggs your household eats",
+        )
+        for title, blurb in zip(titles, blurbs):
+            self.assertIn(title, listing, title)
+            self.assertIn(blurb, listing, title)
+        self.assertLess(listing.index(titles[0]), listing.index(titles[1]))
+        self.assertLess(listing.index(titles[1]), listing.index(titles[2]))
+        for excluded in ("All guides", "Privacy policy", "Affiliate disclosure", "Page not found"):
+            self.assertNotIn(excluded, listing)
+        for path in ("/coop-and-run-size/", "/why-chickens-stop-laying/", "/how-many-chickens-for-eggs/"):
+            self.assertIn(f'href="{base}{path}"', listing)
+        home_nav = self.read("index.html").split('<nav class="site-nav"', 1)[1].split("</nav>", 1)[0]
+        self.assertLess(home_nav.index(">Home<"), home_nav.index(">Guides<"))
+        self.assertLess(home_nav.index(">Guides<"), home_nav.index(">Coop size<"))
+        self.assertLess(home_nav.index(">Coop size<"), home_nav.index(">About<"))
+
+        pages = [
+            _article("Older guide", "The first article.", "/older/", "2026-01-02"),
+            _article("Same day, later path", "Sorted by path.", "/zeta/", "2026-01-02"),
+            _article("Newer [[site_name]]", "Uses [[site_name]] in the sentence.", "/newer/", "2026-03-01"),
+            _article("All guides", "Must not list itself.", "/guides/", "2026-01-01"),
+            {
+                "schema": "webpage",
+                "title": "About",
+                "description": "Not a guide.",
+                "path": "/about/",
+                "published": "2020-01-01",
+            },
+            {
+                "schema": "website",
+                "title": "Home",
+                "description": "The home page.",
+                "path": "/",
+                "published": "2020-01-01",
+            },
+        ]
+        rendered = build.guide_index_html(pages, self.config)
+        name = self.config["siteName"]
+        self.assertIn(f"Newer {name}", rendered)
+        self.assertIn(f"Uses {name} in the sentence.", rendered)
+        self.assertNotIn("Not a guide.", rendered)
+        self.assertNotIn("The home page.", rendered)
+        self.assertNotIn("Must not list itself.", rendered)
+        self.assertLess(rendered.index("Older guide"), rendered.index("Same day, later path"))
+        self.assertLess(rendered.index("Same day, later path"), rendered.index(f"Newer {name}"))
+        self.assertIn('href="/older/"', rendered)
+        meta = {"path": "/guides/", "source": "guides.html", "affiliate": False}
+        with self.assertRaises(build.BuildError):
+            build.prepare_body("<h1>All guides</h1>", meta, self.config, self.guidelines, pages)
 
     def test_internal_links(self):
         failures = linkcheck.check_internal(
@@ -342,6 +410,16 @@ EGG_SOURCE_URLS = (
     "https://www.vt.edu/content/dam/pubs_ext_vt_edu/APSC/apsc-172/APSC-172.pdf",
     "https://livestockconservancy.org/heritage-breeds/heritage-breed-chickens-comparison-chart/",
 )
+
+
+def _article(title: str, description: str, path: str, published: str) -> dict:
+    return {
+        "schema": "article",
+        "title": title,
+        "description": description,
+        "path": path,
+        "published": published,
+    }
 
 
 def hens_needed(eggs_per_week: int, daily_num: int, daily_den: int) -> int:
