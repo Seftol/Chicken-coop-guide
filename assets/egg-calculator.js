@@ -149,58 +149,14 @@
   function arithmeticText(eggs, rate, detail) {
     var step = "7 × " + rate.dailyText + " = " + rate.perWeekText + " eggs per hen per week. ";
     if (detail.remainder === 0) {
-      return (
-        step +
-        eggs +
-        " ÷ " +
-        rate.perWeekText +
-        " = " +
-        detail.hens +
-        " exactly, so the egg count is " +
-        detail.hens +
-        " " +
-        henWord(detail.hens) +
-        ". The division is arithmetic. It is not a count from a flock, and it is not a test."
-      );
+      return step + eggs + " ÷ " + rate.perWeekText + " = " + detail.hens + ".";
     }
-    return (
-      step +
-      eggs +
-      " ÷ " +
-      rate.perWeekText +
-      " = " +
-      detail.whole +
-      " and " +
-      detail.remainder +
-      "/" +
-      detail.denominator +
-      ", which is more than " +
-      detail.whole +
-      ". The next whole hen is " +
-      detail.hens +
-      ". That step up is arithmetic. It is not a count from a flock, and it is not a test."
-    );
+    return step + eggs + " ÷ " + rate.perWeekText + ", rounded up to " + detail.hens + ".";
   }
 
   function companyText(hens) {
-    var floor =
-      "Separate from the division: the RSPCA in the UK recommends at least three hens that get on well, and Virginia Cooperative Extension says chickens need the company of at least two other chickens. The same Virginia page says hens do not need a rooster to lay eggs. The 3 is that company minimum, not a laying rate.";
-    if (hens < COMPANY_MIN) {
-      return (
-        floor +
-        " The egg division comes to " +
-        hens +
-        ", which is under 3. The larger of " +
-        hens +
-        " and 3 is 3. Taking the larger number is arithmetic."
-      );
-    }
-    return (
-      floor +
-      " The egg division comes to " +
-      hens +
-      ", which is already at least those three birds."
-    );
+    if (hens >= COMPANY_MIN) return "";
+    return "Keep 3 hens. The egg sum is " + hens + ", and both the RSPCA and Virginia Tech describe a group of at least three.";
   }
 
   function render(model) {
@@ -210,41 +166,27 @@
     var plan = birdsToKeep(model.hens);
     var lead;
     if (model.hens < COMPANY_MIN) {
-      lead =
-        "Plan for 3 hens. The egg division at this rate is " +
-        model.hens +
-        " " +
-        henWord(model.hens) +
-        ", and the company minimum is 3.";
+      lead = "Plan for 3 hens at " + model.rate.name + ".";
     } else {
       lead = plan + " " + henWord(plan) + " at " + model.rate.name + ".";
     }
     var eggsLine;
     if (model.basis === "people") {
-      eggsLine =
-        model.people +
-        " × " +
-        model.perPerson +
-        " = " +
-        model.eggs +
-        " eggs per week. That multiplication is arithmetic. One egg a day is 7 a week only because a week has 7 days, which is also arithmetic, not a laying rate.";
+      eggsLine = model.people + " × " + model.perPerson + " = " + model.eggs + " eggs a week.";
     } else {
-      eggsLine = model.eggs + " eggs per week, the total you entered.";
+      eggsLine = model.eggs + " eggs a week.";
     }
-    return (
+    var html =
       '<p class="results-lead">' +
       escapeHtml(lead) +
-      "</p>" +
-      "<p>" +
+      "</p><p>" +
       escapeHtml(eggsLine) +
-      "</p>" +
-      "<p>" +
+      "</p><p>" +
       escapeHtml(arithmeticText(model.eggs, model.rate, model.detail)) +
-      "</p>" +
-      "<p>" +
-      escapeHtml(companyText(model.hens)) +
-      "</p>"
-    );
+      "</p>";
+    var company = companyText(model.hens);
+    if (company) html += "<p>" + escapeHtml(company) + "</p>";
+    return html;
   }
 
   function parseWhole(raw) {
@@ -275,12 +217,7 @@
       var totalRaw = form.elements["total-eggs"].value.trim();
       var total = parseWhole(totalRaw);
       if (total === null || total < 1 || total > TOTAL_MAX) {
-        return {
-          error:
-            "Enter a whole number of eggs per week from 1 to " +
-            TOTAL_MAX +
-            ". The table under the form covers 2, 4, and 6 people at one egg a day without JavaScript.",
-        };
+        return { error: "Enter a whole number of eggs per week from 1 to " + TOTAL_MAX + "." };
       }
       eggs = total;
     } else if (basis === "people") {
@@ -289,20 +226,10 @@
       people = parseWhole(peopleRaw);
       perPerson = parseWhole(perRaw);
       if (people === null || people < 1 || people > PEOPLE_MAX) {
-        return {
-          error:
-            "Enter a whole number of people from 1 to " +
-            PEOPLE_MAX +
-            ". The limit is the form’s, not a flock size from a source.",
-        };
+        return { error: "Enter a whole number of people from 1 to " + PEOPLE_MAX + "." };
       }
       if (perPerson === null || perPerson < 1 || perPerson > EGGS_PER_PERSON_MAX) {
-        return {
-          error:
-            "Enter whole eggs per person per week from 1 to " +
-            EGGS_PER_PERSON_MAX +
-            ". One egg a day is 7. That 7 is arithmetic.",
-        };
+        return { error: "Enter 1 to " + EGGS_PER_PERSON_MAX + " eggs per person per week." };
       }
       eggs = people * perPerson;
     } else {
