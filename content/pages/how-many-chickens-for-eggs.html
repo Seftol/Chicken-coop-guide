@@ -1,0 +1,225 @@
+---
+title: How many chickens do I need for eggs? A calculator with sources
+description: Work out how many hens you need for the eggs your household eats, with laying rates from extension services for the first year and the year after.
+path: /how-many-chickens-for-eggs/
+updated: 2026-11-21
+published: 2026-11-21
+schema: article
+nav: false
+affiliate: false
+sitemap: true
+---
+<h1>How many chickens do I need for eggs? A calculator with sources</h1>
+<p>A family of four does not have one right flock size. Three guides publish three different rules, and a hen in her first year lays more eggs than the same hen a year later. Use the row that matches how many eggs you want, then the calculator if your basket is different. The tables further down are that sum for one egg per person per day.</p>
+<div class="table-scroll">
+  <table>
+    <caption>What the guides say</caption>
+    <thead>
+      <tr>
+        <th scope="col">Source</th>
+        <th scope="col">What it says</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><a href="https://extension.unh.edu/blog/2025/07/all-about-eggs-audio">UNH Extension</a>, July 2025</th>
+        <td>Around 4 to 6 chickens for a family of four. More if you eat a lot of eggs or give some away.</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home">University of Queensland</a>, 8 April 2022</th>
+        <td>About 4 or 5 chickens for around 20 to 25 eggs a week. Each hen lays 4 to 5 eggs a week, on average.</td>
+      </tr>
+      <tr>
+        <th scope="row"><a href="https://pubs.nmsu.edu/_circulars/CR477.pdf">NMSU</a>, Circular 477</th>
+        <td>For one egg per person per day, raise 12 chicks and keep 3 layers per family member. Under most circumstances there is little advantage in more than 18 to 20 layers, which should supply a family of 5 or 6 at that rate.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="calculator">Calculator</h2>
+<p>Hen counts here are simple division on the sourced laying rates, rounded up to whole hens. Sources sometimes disagree; where they do, both figures are shown.</p>
+<p>Enter the household, or a weekly total, and pick one rate. Where a guide prints a range, the choices are the two ends.</p>
+<form id="egg-calculator" class="calc" action="#worked-examples">
+  <fieldset>
+    <legend>What to count</legend>
+    <label class="choice">
+      <input type="radio" name="basis" value="people" checked>
+      <span>People in the household <small>Times eggs per person per week.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="basis" value="total">
+      <span>A weekly egg total <small>Include eggs you give away.</small></span>
+    </label>
+  </fieldset>
+  <div class="field">
+    <label for="people">Number of people</label>
+    <input id="people" name="people" type="number" inputmode="numeric" min="1" max="20" value="4">
+    <p class="hint">1 to 20.</p>
+  </div>
+  <div class="field">
+    <label for="eggs-per-person">Eggs per person per week</label>
+    <input id="eggs-per-person" name="eggs-per-person" type="number" inputmode="numeric" min="1" max="21" value="7">
+    <p class="hint">One egg a day is 7. The form accepts 1 to 21.</p>
+  </div>
+  <div class="field">
+    <label for="total-eggs">Total eggs per week</label>
+    <input id="total-eggs" name="total-eggs" type="number" inputmode="numeric" min="1" max="420" value="">
+    <p class="hint">Used only for a weekly total. 1 to 420.</p>
+  </div>
+  <fieldset>
+    <legend>Laying rate</legend>
+    <label class="choice">
+      <input type="radio" name="rate" value="uf-90" checked>
+      <span>Peak first year, about 90% <small><a href="https://ask.ifas.ufl.edu/publication/PS029/pdf">UF/IFAS</a>: about 90% lay, 6 to 8 weeks after laying begins (0.90 eggs per hen per day).</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="unh-09">
+      <span>First year, 9 eggs a day from 10 hens <small><a href="https://extension.unh.edu/resource/producing-your-own-eggs">UNH Extension</a>: about 9 eggs a day once 10 hens are laying (0.9 per hen).</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="uq-4">
+      <span>Queensland, 4 eggs per hen per week <small><a href="https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home">University of Queensland</a>: 4 to 5 eggs per hen per week. This choice is 4.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="uq-5">
+      <span>Queensland, 5 eggs per hen per week <small><a href="https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home">University of Queensland</a>: the upper end of that 4 to 5.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="uf-65">
+      <span>After about 12 months of lay, about 65% <small><a href="https://ask.ifas.ufl.edu/publication/PS029/pdf">UF/IFAS</a>: about 65% after 12 months of lay (0.65 per hen per day).</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="unh-06">
+      <span>After 13 months, 6 eggs a day from 10 hens <small><a href="https://extension.unh.edu/resource/producing-your-own-eggs">UNH Extension</a>: 6 to 7 eggs a day from 10 hens. This choice is 6 (0.6 per hen).</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="ncsu-50">
+      <span>By the 12th month, 6 eggs a day from 12 hens <small><a href="https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina">NC State</a>: 6 a day from 12 hens (0.5 per hen).</small></span>
+    </label>
+  </fieldset>
+  <button type="submit">Work out the hens</button>
+  <div id="egg-results" aria-live="polite"></div>
+</form>
+<noscript>
+  <p>The form needs JavaScript. The tables below do not.</p>
+</noscript>
+<script src="/assets/egg-calculator.js" defer></script>
+
+<h3 id="worked-examples">Worked examples</h3>
+<p>One egg per person per day: 2 people is 14 eggs a week, 4 is 28, and 6 is 42. The 90% column is UF’s peak, the same daily rate as UNH’s 9 eggs from 10 hens. The 65% column is UF after 12 months of lay. The 50% column is NC State’s 6 eggs a day from 12 hens.</p>
+<div class="table-scroll">
+  <table>
+    <caption>Hens for one egg per person per day, rounded up.</caption>
+    <thead>
+      <tr>
+        <th scope="col">People</th>
+        <th scope="col">Eggs per week</th>
+        <th scope="col">90%, 6.3 per hen</th>
+        <th scope="col">65%, 4.55 per hen</th>
+        <th scope="col">50%, 3.5 per hen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">2</th>
+        <td data-people="2" data-kind="eggs">14</td>
+        <td data-people="2" data-rate="uf-90">3</td>
+        <td data-people="2" data-rate="uf-65">4</td>
+        <td data-people="2" data-rate="ncsu-50">4</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td data-people="4" data-kind="eggs">28</td>
+        <td data-people="4" data-rate="uf-90">5</td>
+        <td data-people="4" data-rate="uf-65">7</td>
+        <td data-people="4" data-rate="ncsu-50">8</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td data-people="6" data-kind="eggs">42</td>
+        <td data-people="6" data-rate="uf-90">7</td>
+        <td data-people="6" data-rate="uf-65">10</td>
+        <td data-people="6" data-rate="ncsu-50">12</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="table-scroll">
+  <table>
+    <caption>Family of four, 28 eggs a week, at the other rates.</caption>
+    <thead>
+      <tr>
+        <th scope="col">Rate</th>
+        <th scope="col">Eggs per hen per week</th>
+        <th scope="col">Hens</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Queensland, 4 per hen per week</th>
+        <td>4</td>
+        <td data-people="4" data-rate="uq-4">7</td>
+      </tr>
+      <tr>
+        <th scope="row">Queensland, 5 per hen per week</th>
+        <td>5</td>
+        <td data-people="4" data-rate="uq-5">6</td>
+      </tr>
+      <tr>
+        <th scope="row">UNH, 0.6 per hen per day</th>
+        <td>4.2</td>
+        <td data-people="4" data-rate="unh-06">7</td>
+      </tr>
+      <tr>
+        <th scope="row">UNH first year, 0.9 per hen per day</th>
+        <td>6.3</td>
+        <td data-people="4" data-rate="unh-09">5</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>The <a href="https://www.rspca.org.uk/adviceandwelfare/pets/chickens">RSPCA in the UK</a> recommends at least three hens that get on well. <a href="https://www.vt.edu/content/dam/pubs_ext_vt_edu/APSC/apsc-172/APSC-172.pdf">Virginia Cooperative Extension</a> says chickens need the company of at least two other chickens, so keep three even when the egg sum is lower, and hens do not need a rooster to lay eggs.</p>
+
+<h2 id="lay-less">Why your hens lay less than the first-year rate</h2>
+<p>A breed’s yearly egg number is a first-year kind of figure. Age, day length, and a late start all shrink the basket. The fuller checklist, including molt, feed, and water, is on <a href="/why-chickens-stop-laying/">why chickens stop laying</a>.</p>
+<h3 id="age">Age</h3>
+<ul>
+  <li><a href="https://ask.ifas.ufl.edu/publication/PS029/pdf">UF/IFAS</a>: about 65% after 12 months of lay. Good layers lay about 50 to 60 weeks, then molt. After two or three years many hens decline significantly.</li>
+  <li><a href="https://extension.unh.edu/resource/producing-your-own-eggs">UNH Extension</a>: 10 hens lay about 9 eggs a day at first, then 6 or 7 a day after 13 months.</li>
+  <li><a href="https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina">NC State</a>: 12 hens average 9 or 10 eggs a day for several months, peak at 32 to 34 weeks of age, and may be down to 6 a day by the 12th month after laying begins.</li>
+</ul>
+<h3 id="daylight">Daylight</h3>
+<ul>
+  <li>NC State: 14 to 16 hours of light in fall and winter to maximise laying. Resting hens through the short days is reasonable, and a shortening day often brings a molt and a stop of about two months.</li>
+  <li>UNH fact sheet: at least 14 hours of total light from 1 September to 1 May if you light the coop. That interferes with the natural molt.</li>
+  <li>UNH podcast: 12 to 14 hours a day. The same conversation describes a light on for 12 hours.</li>
+</ul>
+<h3 id="start">When the first egg arrives</h3>
+<ul>
+  <li>NC State: pullets begin at 16 to 24 weeks.</li>
+  <li>UF/IFAS: about 18 to 22 weeks, then the peak 6 to 8 weeks later.</li>
+  <li>NMSU: pullets start at 20 to 24 weeks.</li>
+  <li>Virginia Tech: chicks take 4 to 6 months to lay.</li>
+  <li>UNH: around four months of age, with a five-month growing period, and five-month-old pullets may be ready to lay. Chicks bought in April or May lay around July or August in that northern-hemisphere example, not in Australia, where the short days fall around June.</li>
+</ul>
+
+<h2 id="breed">Breed changes the number</h2>
+<p>The <a href="https://www.rspca.org.uk/adviceandwelfare/pets/chickens">RSPCA</a> lists annual eggs for four common UK layers: Gingernut Ranger 300, New Hampshire Red 280, Rhode Island Red 260, and Sussex and Sussex bantam 260. It marks the Rhode Island Red and the Sussex as dual purpose. The <a href="https://extension.unh.edu/blog/2025/07/all-about-eggs-audio">UNH podcast</a> says chickens lay about 250 to 300 eggs a year on average, and that blue-egg and green-egg breeds lay fewer than some brown-egg and white-egg layers. The <a href="https://extension.unh.edu/resource/producing-your-own-eggs">UNH fact sheet</a> lists a Rhode Island Red at 250 to 280 eggs a year, beside the RSPCA’s 260; its other breed ranges are on the <a href="/why-chickens-stop-laying/#age">stop-laying page</a>. For heritage breeds, use <a href="https://livestockconservancy.org/heritage-breeds/heritage-breed-chickens-comparison-chart/">The Livestock Conservancy comparison chart</a>. <a href="https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina">NC State</a> suggests those breeds when slightly less than one egg per hen per day in the first year is enough and you want hens that keep laying longer.</p>
+
+<h2 id="size-the-coop">Then size the coop</h2>
+<p>More hens need more floor, run, roost, and nest space, and those allowances disagree too. Once you have a count, use the <a href="/coop-and-run-size/#chart">reference chart</a> for 2 to 20 standard hens and the <a href="/coop-and-run-size/#calculator">calculator</a> for the other cases.</p>
+
+<h2 id="references">Sources</h2>
+<p>Read on 21 November 2026.</p>
+<ol class="references">
+  <li>Katrina Klobucher, University of New Hampshire Extension. “All About Eggs” (podcast transcript). 1 July 2025. Egg every 24 to 26 hours. <a href="https://extension.unh.edu/blog/2025/07/all-about-eggs-audio">https://extension.unh.edu/blog/2025/07/all-about-eggs-audio</a></li>
+  <li>University of New Hampshire Extension. “Producing Your Own Eggs.” No date in the article. Metadata: published 9 January 2018, modified 17 May 2023. <a href="https://extension.unh.edu/resource/producing-your-own-eggs">https://extension.unh.edu/resource/producing-your-own-eggs</a></li>
+  <li>Keely Meg Double, Queensland Alliance for Agriculture and Food Innovation, University of Queensland. “Keeping chickens at home.” 8 April 2022. Updated 12 April 2022. <a href="https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home">https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home</a></li>
+  <li>Marcy Ward, New Mexico State University Cooperative Extension. “Small Poultry Flock Management,” Circular 477. Revised August 2015. <a href="https://pubs.nmsu.edu/_circulars/CR477.pdf">https://pubs.nmsu.edu/_circulars/CR477.pdf</a></li>
+  <li>Jacqueline P. Jacob, Henry R. Wilson, Richard D. Miles, Gary D. Butcher, and F. Ben Mather, UF/IFAS Extension. “Factors Affecting Egg Production in Backyard Chicken Flocks.” April 1998; revised March 2009 and December 2017. PDF PS-35; reviewed 03/2025. <a href="https://ask.ifas.ufl.edu/publication/PS029/pdf">https://ask.ifas.ufl.edu/publication/PS029/pdf</a></li>
+  <li>Anne Edwards and Donna Carver, NC State Extension. “Keeping Garden Chickens in North Carolina,” AG-729. 1 April 2008. Reviewed 23 May 2024. <a href="https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina">https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina</a></li>
+  <li>RSPCA. “Keeping chickens and hens as pets.” No date on the page. <a href="https://www.rspca.org.uk/adviceandwelfare/pets/chickens">https://www.rspca.org.uk/adviceandwelfare/pets/chickens</a></li>
+  <li>Christina Ruszczyk-Murray, Virginia Cooperative Extension. “Ten Things to Know Before You Get Chickens,” APSC-172NP. 2020. <a href="https://www.vt.edu/content/dam/pubs_ext_vt_edu/APSC/apsc-172/APSC-172.pdf">https://www.vt.edu/content/dam/pubs_ext_vt_edu/APSC/apsc-172/APSC-172.pdf</a></li>
+  <li>The Livestock Conservancy. “Heritage Chicken Breed Comparison Chart.” No date on the page. <a href="https://livestockconservancy.org/heritage-breeds/heritage-breed-chickens-comparison-chart/">https://livestockconservancy.org/heritage-breeds/heritage-breed-chickens-comparison-chart/</a></li>
+</ol>
