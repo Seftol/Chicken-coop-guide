@@ -228,6 +228,128 @@ process.stdout.write(JSON.stringify(cases));
         self.assertEqual(space_math.au_area_m2(7, "bantam", self.guidelines), 3.3)
         self.assertEqual(space_math.psu_nests(20, self.guidelines), 6)
 
+    def test_egg_table_matches_formula(self):
+        import os
+        import re
+
+        page = self.read("how-many-chickens-for-eggs/index.html")
+        self.assertIn('id="calculator"', page)
+        self.assertIn('id="egg-calculator"', page)
+        self.assertIn(f'{self.config["basePath"]}/assets/egg-calculator.js', page)
+        self.assertNotIn("Affiliate links.", page)
+        self.assertNotIn("data-affiliate", page)
+        self.assertIn(f"{self.config['baseUrl']}/how-many-chickens-for-eggs/", self.read("sitemap.xml"))
+        for url in EGG_SOURCE_URLS:
+            self.assertIn(url, page, url)
+        for people, eggs in (("2", "14"), ("4", "28"), ("6", "42")):
+            self.assertIn(f'data-people="{people}" data-kind="eggs">{eggs}<', page)
+        cells = re.findall(
+            r'data-people="(\d+)" data-rate="([a-z0-9-]+)">(\d+)<',
+            page,
+        )
+        self.assertEqual(len(cells), 13, cells)
+        seen = set()
+        for people, rate_id, text in cells:
+            num, den = EGG_RATES[rate_id]
+            eggs = int(people) * 7
+            self.assertEqual(int(text), hens_needed(eggs, num, den), (people, rate_id))
+            seen.add((people, rate_id))
+        self.assertEqual(
+            seen,
+            {
+                ("2", "uf-90"),
+                ("2", "uf-65"),
+                ("2", "ncsu-50"),
+                ("4", "uf-90"),
+                ("4", "uf-65"),
+                ("4", "ncsu-50"),
+                ("4", "uq-4"),
+                ("4", "uq-5"),
+                ("4", "unh-06"),
+                ("4", "unh-09"),
+                ("6", "uf-90"),
+                ("6", "uf-65"),
+                ("6", "ncsu-50"),
+            },
+        )
+        node = shutil.which("node")
+        if node is None:
+            self.skipTest("node is not installed")
+        script = r"""
+const calc = require(process.env.EGG_JS);
+const rates = calc.RATES.map((rate) => ({
+  id: rate.id,
+  dailyNum: rate.dailyNum,
+  dailyDen: rate.dailyDen,
+  weeklyNum: rate.weeklyNum,
+  weeklyDen: rate.weeklyDen,
+}));
+const samples = [];
+for (const rate of calc.RATES) {
+  for (const eggs of [1, 7, 14, 28, 42, 100]) {
+    samples.push([rate.id, eggs, calc.hensNeeded(eggs, rate.dailyNum, rate.dailyDen)]);
+  }
+}
+process.stdout.write(JSON.stringify({
+  companyMin: calc.COMPANY_MIN,
+  rates,
+  samples,
+  floor: [calc.birdsToKeep(1), calc.birdsToKeep(2), calc.birdsToKeep(3), calc.birdsToKeep(8)],
+}));
+"""
+        completed = subprocess.run(
+            [node, "-e", script],
+            check=True,
+            capture_output=True,
+            text=True,
+            env={**os.environ, "EGG_JS": str(ROOT / "assets" / "egg-calculator.js")},
+        )
+        payload = json.loads(completed.stdout)
+        self.assertEqual(payload["companyMin"], 3)
+        self.assertEqual(payload["floor"], [3, 3, 3, 8])
+        self.assertEqual({item["id"] for item in payload["rates"]}, set(EGG_RATES))
+        for item in payload["rates"]:
+            num, den = EGG_RATES[item["id"]]
+            self.assertEqual((item["dailyNum"], item["dailyDen"]), (num, den))
+            self.assertEqual(
+                item["weeklyNum"] * den,
+                item["weeklyDen"] * 7 * num,
+                item["id"],
+            )
+        for rate_id, eggs, js_hens in payload["samples"]:
+            num, den = EGG_RATES[rate_id]
+            self.assertEqual(js_hens, hens_needed(eggs, num, den), (rate_id, eggs))
+
+
+EGG_RATES = {
+    "uf-90": (9, 10),
+    "unh-09": (9, 10),
+    "uq-4": (4, 7),
+    "uq-5": (5, 7),
+    "uf-65": (13, 20),
+    "unh-06": (3, 5),
+    "ncsu-50": (1, 2),
+}
+
+EGG_SOURCE_URLS = (
+    "https://extension.unh.edu/blog/2025/07/all-about-eggs-audio",
+    "https://extension.unh.edu/resource/producing-your-own-eggs",
+    "https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home",
+    "https://pubs.nmsu.edu/_circulars/CR477.pdf",
+    "https://ask.ifas.ufl.edu/publication/PS029/pdf",
+    "https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina",
+    "https://www.rspca.org.uk/adviceandwelfare/pets/chickens",
+    "https://www.vt.edu/content/dam/pubs_ext_vt_edu/APSC/apsc-172/APSC-172.pdf",
+    "https://livestockconservancy.org/heritage-breeds/heritage-breed-chickens-comparison-chart/",
+)
+
+
+def hens_needed(eggs_per_week: int, daily_num: int, daily_den: int) -> int:
+    """Smallest whole hen count at or above eggs / (7 × daily rate)."""
+    numerator = eggs_per_week * daily_den
+    denominator = 7 * daily_num
+    return (numerator + denominator - 1) // denominator
+
 
 def urls_in(page: str) -> list[str]:
     urls = []

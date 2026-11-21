@@ -1,0 +1,205 @@
+---
+title: How many chickens do I need for eggs? A calculator with sources
+description: Work out how many hens you need for the eggs your household eats, with laying rates from extension services for the first year and the year after.
+path: /how-many-chickens-for-eggs/
+updated: 2026-11-21
+published: 2026-11-21
+schema: article
+nav: false
+affiliate: false
+sitemap: true
+---
+<h1>How many chickens do I need for eggs? A calculator with sources</h1>
+<aside class="note" id="short-answer">
+  <p>For a family of four, <a href="https://extension.unh.edu/blog/2025/07/all-about-eggs-audio">UNH Extension’s July 2025 podcast</a> says around 4 to 6 chickens. The <a href="https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home">University of Queensland</a> says about 4 or 5 chickens for around 20 to 25 eggs a week. <a href="https://pubs.nmsu.edu/_circulars/CR477.pdf">NMSU’s rule of thumb</a> is three layers per family member for one egg per person per day.</p>
+</aside>
+<p>Those three sentences are not the same plan, and this page does not turn them into one. UNH names a family of four. In the same stretch of the transcript it says a household that eats a lot of eggs, or that wants to give some away, may want more than that. Queensland names an egg basket, around 20 to 25 a week, and does not name a family size. NMSU names one egg per person per day, and three layers for each person. The full rule-of-thumb sentence also says to raise 12 chicks. That 12 is part of the sentence. It is not a hen count NMSU printed for a family of four. A family of four at one egg each per day is 4 × 7 = 28 eggs a week, because a week has seven days. Twenty-eight is more than Queensland’s 20 to 25. Three layers for each of four people is 3 × 4 = 12. Both of those products are arithmetic on the figures the pages printed. Neither page printed “28” or “12” for a family of four.</p>
+<p>NMSU’s same section says something else as well. Under most circumstances, it says, there is little advantage in having more than 18 to 20 layers, and a flock that size should supply a family of five or six with at least one egg per person per day. Three layers for each of five people is 15, and for six people is 18. Fifteen is below 18 to 20. Eighteen meets only the bottom of that range. The two sentences are both on the page, and they are not averaged into one flock size.</p>
+<p>Age is the other reason a single “hens per family” number fails. A flock near the start of lay, at the rates below, produces more eggs per hen than the same hens a year later. Four to six birds that cover a household in the first summer will not cover the same basket after the rate has dropped. The calculator asks you to pick the rate that matches the hens you are planning for. It does not blend the rates into a new one.</p>
+<p>This site does not keep chickens. It has not counted a nest box or timed a molt. Every laying figure below is one a linked page prints. Every hen count the calculator and the tables produce is division, labelled as arithmetic, not a test.</p>
+
+<h2 id="calculator">Calculator</h2>
+<p>The count is the smallest whole number of hens that is at least as large as the eggs you want in a week, divided by the eggs one hen lays in a week. A daily rate becomes a weekly rate when it is multiplied by 7. In symbols: hens = the next whole number at or above (eggs per week) ÷ (7 × eggs per hen per day). Going up to the next whole hen is part of that arithmetic. You cannot keep a fraction of a hen. It is not a measurement of a flock.</p>
+<p>Choose one rate. Each option is a figure from the page named on it. Where a page prints a range, the choices are the ends of that range. The 4 and the 5 from Queensland are both kept. They are not replaced by 4.5. The calculator uses 0.90 and 0.65 exactly where <a href="https://ask.ifas.ufl.edu/publication/PS029/pdf">UF/IFAS</a> says “about 90 percent” and “about 65 percent”. The word “about” is theirs. Treating it as an exact planning rate is arithmetic, not a more precise measurement than the publication made.</p>
+<form id="egg-calculator" class="calc" action="#worked-examples">
+  <fieldset>
+    <legend>What to count</legend>
+    <label class="choice">
+      <input type="radio" name="basis" value="people" checked>
+      <span>People in the household <small>Multiplied by how many eggs each person eats in a week.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="basis" value="total">
+      <span>A weekly egg total <small>Use this when you already know the basket, including eggs you give away.</small></span>
+    </label>
+  </fieldset>
+  <div class="field">
+    <label for="people">Number of people</label>
+    <input id="people" name="people" type="number" inputmode="numeric" min="1" max="20" value="4">
+    <p class="hint">Whole numbers from 1 to 20. The cap is this form’s, not a flock limit from a source.</p>
+  </div>
+  <div class="field">
+    <label for="eggs-per-person">Eggs per person per week</label>
+    <input id="eggs-per-person" name="eggs-per-person" type="number" inputmode="numeric" min="1" max="21" value="7">
+    <p class="hint">One egg a day is 7 eggs a week. That 7 is 7 × 1, arithmetic, not a laying rate. The form accepts 1 to 21.</p>
+  </div>
+  <div class="field">
+    <label for="total-eggs">Total eggs per week</label>
+    <input id="total-eggs" name="total-eggs" type="number" inputmode="numeric" min="1" max="420" value="">
+    <p class="hint">Used only when “A weekly egg total” is selected. Whole numbers from 1 to 420.</p>
+  </div>
+  <fieldset>
+    <legend>Laying rate, one source at a time</legend>
+    <label class="choice">
+      <input type="radio" name="rate" value="uf-90" checked>
+      <span>Peak first year, about 90 percent lay <small>UF/IFAS, “Factors Affecting Egg Production in Backyard Chicken Flocks”: flock production peaks at about 90 percent, 6 to 8 weeks after laying begins. The form uses 0.90 eggs per hen per day.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="unh-09">
+      <span>First year, 9 eggs a day from 10 hens <small><a href="https://extension.unh.edu/resource/producing-your-own-eggs">UNH Extension, “Producing Your Own Eggs”</a>: ten hens should lay about nine eggs a day once they all get started. 9 ÷ 10 = 0.9 eggs per hen per day. That division is arithmetic. It is the same daily rate as 0.90, and it is still listed on its own, because one page states a percentage and the other states a ten-hen example.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="uq-4">
+      <span>Queensland guide, 4 eggs per hen per week <small>University of Queensland, “Keeping chickens at home” (8 April 2022): each hen lays four to five eggs a week, on average, and 20 to 25 eggs a week needs about four or five chickens. This choice uses 4, the lower egg figure. It is not an average with 5.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="uq-5">
+      <span>Queensland guide, 5 eggs per hen per week <small>The upper figure in that same Queensland sentence. Kept separate from the 4.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="uf-65">
+      <span>After about 12 months of lay, about 65 percent <small>The same UF/IFAS publication: production gradually declines to about 65 percent after 12 months of lay. The form uses 0.65 eggs per hen per day.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="unh-06">
+      <span>After 13 months, 6 eggs a day from 10 hens <small>UNH Extension: a 10-hen flock eases to six to seven eggs a day after 13 months. This choice uses 6, the low end. 6 ÷ 10 = 0.6. Seven would be 0.7. The form does not use 6.5, which neither end of that sentence is.</small></span>
+    </label>
+    <label class="choice">
+      <input type="radio" name="rate" value="ncsu-50">
+      <span>By the 12th month, 6 eggs a day from 12 hens <small><a href="https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina">NC State Extension</a>: twelve hens average 9 or 10 eggs a day for several months, peak at 32 to 34 weeks of age, and may slow to 6 a day by the 12th month after laying begins. 6 ÷ 12 = 0.5, which is 50 percent. That percentage is arithmetic on the 6 and the 12. The 9 or 10 is not folded into it.</small></span>
+    </label>
+  </fieldset>
+  <button type="submit">Work out the hens</button>
+  <div id="egg-results" aria-live="polite"></div>
+</form>
+<noscript>
+  <p>The form needs JavaScript. The tables under it use the same division for a household eating one egg per person per day, and they do not need JavaScript.</p>
+</noscript>
+<script src="/assets/egg-calculator.js" defer></script>
+
+<h3 id="worked-examples">Worked table, without JavaScript</h3>
+<p>One egg per person per day is 7 eggs per person per week. Two people is 14 eggs a week, four is 28, and six is 42. Those three products are arithmetic. The columns are three rates, not an average of them. At 90 percent, 7 × 0.90 = 6.3 eggs per hen per week. At 65 percent, 7 × 0.65 = 4.55. At 50 percent, 7 × 0.50 = 3.5. The 50 percent column is NC State’s 6 eggs a day from 12 hens, because 6 ÷ 12 = 0.5. The 90 percent column is also UNH’s first-year 9 eggs from 10 hens, because 9 ÷ 10 = 0.90. That match is arithmetic on each page’s own figure. The pages are not combined into a third estimate.</p>
+<div class="table-scroll">
+  <table>
+    <caption>Hens for one egg per person per day. Each cell is the next whole number at or above (eggs per week) ÷ (eggs per hen per week). The smallest cell is 3, so the company minimum of three hens, below, does not change this table.</caption>
+    <thead>
+      <tr>
+        <th scope="col">People</th>
+        <th scope="col">Eggs per week</th>
+        <th scope="col">90 percent, 6.3 per hen</th>
+        <th scope="col">65 percent, 4.55 per hen</th>
+        <th scope="col">50 percent, 3.5 per hen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">2</th>
+        <td data-people="2" data-kind="eggs">14</td>
+        <td data-people="2" data-rate="uf-90">3</td>
+        <td data-people="2" data-rate="uf-65">4</td>
+        <td data-people="2" data-rate="ncsu-50">4</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td data-people="4" data-kind="eggs">28</td>
+        <td data-people="4" data-rate="uf-90">5</td>
+        <td data-people="4" data-rate="uf-65">7</td>
+        <td data-people="4" data-rate="ncsu-50">8</td>
+      </tr>
+      <tr>
+        <th scope="row">6</th>
+        <td data-people="6" data-kind="eggs">42</td>
+        <td data-people="6" data-rate="uf-90">7</td>
+        <td data-people="6" data-rate="uf-65">10</td>
+        <td data-people="6" data-rate="ncsu-50">12</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>The divisions, so the cells can be checked by hand. At 6.3 eggs per hen: 14 ÷ 6.3 = 2 and 14/63, so 3 hens; 28 ÷ 6.3 = 4 and 28/63, so 5; 42 ÷ 6.3 = 6 and 42/63, so 7. At 4.55: 14 ÷ 4.55 = 3 and 7/91, so 4; 28 ÷ 4.55 = 6 and 14/91, so 7; 42 ÷ 4.55 = 9 and 21/91, so 10. At 3.5 the three baskets divide evenly: 14 ÷ 3.5 = 4, 28 ÷ 3.5 = 8, and 42 ÷ 3.5 = 12. Writing 6.3 as 63/10, 4.55 as 91/20, and 3.5 as 7/2 turns each of those lines into whole-number arithmetic. None of it is a flock record.</p>
+<p>The other sourced rates, for the same family of four and the same 28 eggs a week, are in the next table. UNH’s first-year 0.9 is already the 5 in the 90 percent column, so it is repeated here only to show that 9 ÷ 10 lands on that cell.</p>
+<div class="table-scroll">
+  <table>
+    <caption>Family of four, 28 eggs a week, at the rates that are not a named percent in the table above. Same division. The 4 and the 5 from Queensland are not averaged, and 0.6 is the low end of UNH’s six to seven, not the midpoint.</caption>
+    <thead>
+      <tr>
+        <th scope="col">Rate</th>
+        <th scope="col">Eggs per hen per week</th>
+        <th scope="col">Division of 28</th>
+        <th scope="col">Hens</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Queensland, 4 per hen per week</th>
+        <td>4</td>
+        <td>28 ÷ 4 = 7 exactly</td>
+        <td data-people="4" data-rate="uq-4">7</td>
+      </tr>
+      <tr>
+        <th scope="row">Queensland, 5 per hen per week</th>
+        <td>5</td>
+        <td>28 ÷ 5 = 5 and 3/5, so 6</td>
+        <td data-people="4" data-rate="uq-5">6</td>
+      </tr>
+      <tr>
+        <th scope="row">UNH, 0.6 per hen per day</th>
+        <td>4.2</td>
+        <td>28 ÷ 4.2 = 6 and 14/21, so 7</td>
+        <td data-people="4" data-rate="unh-06">7</td>
+      </tr>
+      <tr>
+        <th scope="row">UNH first year, 0.9 per hen per day</th>
+        <td>6.3</td>
+        <td>28 ÷ 6.3 = 4 and 28/63, so 5</td>
+        <td data-people="4" data-rate="unh-09">5</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<p>Two pages set a floor under that arithmetic, whatever the egg count is. The <a href="https://www.rspca.org.uk/adviceandwelfare/pets/chickens">RSPCA in the UK</a> recommends at least three hens that get on well. <a href="https://www.vt.edu/content/dam/pubs_ext_vt_edu/APSC/apsc-172/APSC-172.pdf">Virginia Cooperative Extension’s APSC-172</a> says chickens need the company of at least two other chickens, which is also three birds. The same Virginia page says hens do not need a rooster to lay eggs. If a division comes out at 1 or 2, the egg arithmetic is still shown, and those two pages still ask for three. Taking the larger of the two numbers is arithmetic. The 3 is not a laying rate.</p>
+
+<h2 id="lay-less">Why your hens lay less than the first-year rate</h2>
+<p>A label that says a breed can lay several hundred eggs a year is a first-year kind of number. The pages below give three reasons the basket gets smaller: the hen’s age, the length of the day, and the fact that a chick bought in spring is not laying yet. The full checklist for a hen that has stopped, including molt, feed, and water, is on <a href="/why-chickens-stop-laying/">why chickens stop laying</a>. This section keeps only the figures that change how many hens to plan.</p>
+<h3 id="age">Age</h3>
+<p>UF/IFAS says production declines to about 65 percent after 12 months of lay, which is the 0.65 choice above. It also says good layers lay for about 50 to 60 weeks and then rest in a molt, and that after two or three years many hens decline significantly. UNH says a 10-hen flock eases from about nine eggs a day to six or seven a day after 13 months. NC State says twelve hens average 9 or 10 eggs a day for several months, with the peak at 32 to 34 weeks of age, and may be down to 6 a day by the 12th month after laying begins. Twelve months of lay, 13 months, the 12th month after laying begins, 50 to 60 weeks, and two or three years are the units those pages used. This page does not convert them into one age, and it does not average 65 percent with 50 percent.</p>
+<h3 id="daylight">Daylight, including winter</h3>
+<p>None of the rates above is a winter rate. A short day can drop the basket even when the hens are young, and these pages do not print one percentage for December.</p>
+<p>NC State says a backyard flock is usually not kept on a lighting schedule, and that letting the hens rest through the shorter months is reasonable, with laying starting again when the days lengthen. If you do add light to maximise short-term production, that page says you need 14 to 16 hours of daylight each day in the fall and winter. It also says a naturally decreasing day often causes a molt and a stop of about two months.</p>
+<p>UNH’s fact sheet says you may provide at least 14 hours of total light a day from 1 September to 1 May, and that doing so interferes with the natural molt. The July 2025 podcast, a different UNH page, says chickens need 12 to 14 hours of light each day to keep laying. In the same conversation it describes a light switched on for 12 hours as a way to supplement winter sun. The “12 to 14 hours” need and the “on for 12 hours” example are both in that transcript. They are not the same instruction, and they are not averaged with the fact sheet’s 14 hours or with NC State’s 14 to 16. The stop-laying page collects still other hour figures, from 12 hours through 16, and leaves that disagreement intact.</p>
+<h3 id="start">When the first egg arrives</h3>
+<p>Pullets do not lay on the day they arrive, so a spring purchase does not fill a spring basket. NC State says young hens begin at 16 to 24 weeks of age, depending on breed and conditions. UF/IFAS says about 18 to 22 weeks, depending on breed and season, with the peak 6 to 8 weeks after that. NMSU says pullets start at 20 to 24 weeks. Virginia’s APSC-172 says chicks take 4 to 6 months before they lay, depending on breed. Those ranges overlap and they are not the same range. Weeks and months are left in the units each page printed.</p>
+<p>UNH’s fact sheet says chickens do not start until around four months of age, that a keeper should plan on a five-month growing period, and that five-month-old pullets may be bought ready to lay. Those three statements are all on that page. Its calendar example is the one that matches a common question: chicks bought in April or May lay around July or August. That is UNH’s northern-hemisphere example. It is not a calendar for Australia, where Queensland’s short days fall around June.</p>
+
+<h2 id="breed">Breed changes the number</h2>
+<p>The rates above are flock rates. A breed line on a welfare page is a different kind of figure, eggs per hen per year, and the pages do not agree breed by breed.</p>
+<p>The RSPCA in the UK names four breeds as the ones most commonly kept that lay the most eggs in the UK: Gingernut Ranger 300, New Hampshire Red 280, Rhode Island Red 260, and Sussex and Sussex bantam 260. The Rhode Island Red and the Sussex lines are marked on that page as dual purpose. UNH’s podcast says that on average chickens lay about 250 to 300 eggs a year, and that blue-egg and green-egg breeds produce fewer eggs a year than some brown-egg and white-egg layers. “Fewer than some” is the podcast’s comparison. It does not print a second number for those breeds.</p>
+<p>UNH’s fact sheet, not the podcast, prints 250 to 280 eggs a year for a Rhode Island Red. The RSPCA’s 260 sits inside that range. The two pages still did not print the same statement, and 260 is not used here as a compromise between them. Yearly ranges for other breeds on the UNH fact sheet are quoted on the <a href="/why-chickens-stop-laying/#age">stop-laying page</a>, in the age section, and are not copied again.</p>
+<p>For heritage breeds, <a href="https://livestockconservancy.org/heritage-breeds/heritage-breed-chickens-comparison-chart/">The Livestock Conservancy’s heritage chicken comparison chart</a> is the table to use. The numbers on that chart are not reprinted here. NC State says that if slightly less than one egg per hen per day in the first year is enough, and you want hens that keep laying for longer, consider heritage breeds. “Slightly less than one” is that page’s phrase. It is not turned into a daily rate in the calculator, and the breed-by-breed counts stay on the Conservancy chart.</p>
+
+<h2 id="size-the-coop">Then size the coop</h2>
+<p>More hens means more floor, more run, more roost, and more nest boxes, and the allowances for those do not agree with each other either. Once the egg division has given you a number of birds, the space for that number is on the coop page. The <a href="/coop-and-run-size/#chart">reference chart</a> multiplies the published per-bird rates for 2 to 20 standard hens kept with a coop and a run. The <a href="/coop-and-run-size/#calculator">calculator on that page</a> covers other sizes and the sources that do not fit one column. This page does not repeat the square feet. If the egg division is under three, the company minimum above is still three birds. If the division is higher, the coop has to fit that higher number.</p>
+
+<h2 id="references">Sources</h2>
+<p>Pages were read on 21 November 2026. Dates below are the dates those pages print, except where the note says the date is metadata or absent. Figures that failed to appear on the page were not used.</p>
+<ol class="references">
+  <li>Katrina Klobucher, interviewed by Kendall Kunelius and Rebecca Dube. “All About Eggs” [audio], Shared Soil podcast, episode 17. University of New Hampshire Extension. 1 July 2025. The page is the episode transcript. Around 4 to 6 chickens for a family of four, about 250 to 300 eggs a year, 12 to 14 hours of light, and an egg every 24 to 26 hours are in that transcript. <a href="https://extension.unh.edu/blog/2025/07/all-about-eggs-audio">https://extension.unh.edu/blog/2025/07/all-about-eggs-audio</a></li>
+  <li>University of New Hampshire Extension. “Producing Your Own Eggs.” The article text does not name an author. The contact printed on the page is Kendall Kunelius. The article text does not print a date. Page metadata: published 9 January 2018, modified 17 May 2023. <a href="https://extension.unh.edu/resource/producing-your-own-eggs">https://extension.unh.edu/resource/producing-your-own-eggs</a></li>
+  <li>Keely Meg Double. “Keeping chickens at home.” Queensland Alliance for Agriculture and Food Innovation, University of Queensland. 8 April 2022. Last updated 12 April 2022. The egg sentences are quoted on the page from Dr Elham Assadi Soumeh. <a href="https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home">https://qaafi.uq.edu.au/blog/2022/04/keeping-chickens-home</a></li>
+  <li>Marcy Ward, revising a circular first written by Dave Francis. “Small Poultry Flock Management.” New Mexico State University Cooperative Extension Service, Circular 477. Revised August 2015. <a href="https://pubs.nmsu.edu/_circulars/CR477.pdf">https://pubs.nmsu.edu/_circulars/CR477.pdf</a></li>
+  <li>Jacqueline P. Jacob, Henry R. Wilson, Richard D. Miles, Gary D. Butcher, and F. Ben Mather. “Factors Affecting Egg Production in Backyard Chicken Flocks.” UF/IFAS Extension. The ask.ifas address is publication PS029. The PDF’s own line says document PS-35. Original publication date April 1998. Revised March 2009 and December 2017. The PDF is stamped Reviewed: 03/2025. <a href="https://ask.ifas.ufl.edu/publication/PS029/pdf">https://ask.ifas.ufl.edu/publication/PS029/pdf</a></li>
+  <li>Anne Edwards and Donna Carver. “Keeping Garden Chickens in North Carolina.” NC State Extension, AG-729. Publication date 1 April 2008. Reviewed and revised 23 May 2024. <a href="https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina">https://content.ces.ncsu.edu/keeping-garden-chickens-in-north-carolina</a></li>
+  <li>RSPCA. “Keeping chickens and hens as pets.” The page does not print a date. <a href="https://www.rspca.org.uk/adviceandwelfare/pets/chickens">https://www.rspca.org.uk/adviceandwelfare/pets/chickens</a></li>
+  <li>Christina Ruszczyk-Murray. “Ten Things to Know Before You Get Chickens.” Virginia Cooperative Extension, APSC-172NP. 2020. <a href="https://www.vt.edu/content/dam/pubs_ext_vt_edu/APSC/apsc-172/APSC-172.pdf">https://www.vt.edu/content/dam/pubs_ext_vt_edu/APSC/apsc-172/APSC-172.pdf</a></li>
+  <li>The Livestock Conservancy. “Heritage Chicken Breed Comparison Chart.” The page does not print a date. The chart is not copied on this page. <a href="https://livestockconservancy.org/heritage-breeds/heritage-breed-chickens-comparison-chart/">https://livestockconservancy.org/heritage-breeds/heritage-breed-chickens-comparison-chart/</a></li>
+</ol>
