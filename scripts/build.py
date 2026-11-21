@@ -61,6 +61,7 @@ MONTHS = (
     "December",
 )
 CHART_SLOT = '<div id="space-chart" data-chart="standard-run"></div>'
+GUIDE_INDEX_SLOT = '<div id="guide-index"></div>'
 ATTR_RE = re.compile(
     r"(<[a-zA-Z][^>]*?\s(?:href|src)\s*=\s*)([\"'])(/[^\"']*)\2",
     re.IGNORECASE,
@@ -229,8 +230,35 @@ def assert_affiliate_markup(body: str, meta: dict) -> None:
             )
 
 
-def prepare_body(body: str, meta: dict, config: dict, guidelines: dict) -> str:
+def guide_index_html(pages: list[dict], config: dict) -> str:
+    """List published articles. The guides page does not hand-write this."""
+    articles = [page for page in pages if page["schema"] == "article" and page["path"] != "/guides/"]
+    articles.sort(key=lambda page: (page["published"], page["path"]))
+    items = []
+    for page in articles:
+        title = html.escape(page["title"].replace("[[site_name]]", config["siteName"]))
+        description = html.escape(page["description"].replace("[[site_name]]", config["siteName"]))
+        href = html.escape(page["path"], quote=True)
+        items.append(f'<li><a href="{href}">{title}</a><p>{description}</p></li>')
+    if not items:
+        return '<p id="guide-index">No articles are published yet.</p>'
+    return '<ul class="guide-index" id="guide-index">' + "".join(items) + "</ul>"
+
+
+def prepare_body(
+    body: str,
+    meta: dict,
+    config: dict,
+    guidelines: dict,
+    pages: list[dict] | None = None,
+) -> str:
     assert_affiliate_markup(body, meta)
+    if meta["path"] == "/guides/" and GUIDE_INDEX_SLOT not in body:
+        raise BuildError(f"{meta['source']}: /guides/ must include {GUIDE_INDEX_SLOT}")
+    if GUIDE_INDEX_SLOT in body:
+        if pages is None:
+            raise BuildError(f"{meta['source']}: the guide index needs the built page list")
+        body = body.replace(GUIDE_INDEX_SLOT, guide_index_html(pages, config), 1)
     if CHART_SLOT in body:
         body = body.replace(CHART_SLOT, space_math.chart_html(guidelines), 1)
     if 'id="coop-calculator"' in body:
@@ -388,7 +416,7 @@ def render_page(page: dict, pages: list[dict], config: dict, layout: str, guidel
     for key in ("title", "description", "nav_label"):
         if isinstance(page.get(key), str):
             page[key] = page[key].replace("[[site_name]]", config["siteName"])
-    content = prepare_body(page["body"], page, config, guidelines)
+    content = prepare_body(page["body"], page, config, guidelines, pages)
     updated = (
         f'<p class="updated">Updated <time datetime="{page["updated"]}">'
         f"{html.escape(format_updated(page['updated']))}</time></p>"

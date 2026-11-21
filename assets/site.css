@@ -128,19 +128,25 @@ a:hover {
 .site-nav ul {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   gap: 0.35rem 1rem;
+}
+
+.site-nav a,
+.footer-links a {
+  font-weight: 400;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
 }
 
 .site-nav a {
   color: var(--ink);
   font-size: 0.98rem;
-  text-decoration-thickness: 1px;
 }
 
+/* Color only, so the current page keeps the same baseline and underline as the others. */
 .site-nav a[aria-current="page"] {
   color: var(--green);
-  font-weight: 650;
-  text-decoration-thickness: 2px;
 }
 
 main {
@@ -195,7 +201,8 @@ ol {
   margin: 0.75rem 0;
 }
 
-li + li {
+/* Content lists only. On a horizontal row this margin drops every item after the first. */
+main li + li {
   margin-top: 0.35rem;
 }
 
@@ -213,7 +220,12 @@ li + li {
 .crumbs ol {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   gap: 0.35rem;
+}
+
+.crumbs li + li {
+  margin-top: 0;
 }
 
 .crumbs li:not(:last-child)::after {
@@ -267,6 +279,37 @@ figcaption {
 
 .references a {
   overflow-wrap: anywhere;
+}
+
+.guide-index {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+}
+
+.guide-index li {
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.guide-index li + li {
+  margin-top: 0;
+}
+
+.guide-index li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.guide-index a {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.guide-index p {
+  margin: 0.3rem 0 0;
+  color: var(--ink-soft);
 }
 
 .calc {
@@ -465,6 +508,7 @@ tbody th {
 .footer-links {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   gap: 0.4rem 1.1rem;
 }
 

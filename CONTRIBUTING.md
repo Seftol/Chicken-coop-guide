@@ -24,7 +24,7 @@ The block at the top of the file is `key: value`, one pair per line. It is not f
 | `schema` | yes | `article` for a guide, `webpage` for about/policy pages, `website` for the home page only. |
 | `nav` | no | `true` to show the page in the header. Default `false`. |
 | `nav_label` | no | Short header label. Defaults to `title`. |
-| `nav_order` | no | Integer. Lower numbers come first. Home is 10, the space guide is 20, About is 30. |
+| `nav_order` | no | Integer. Lower numbers come first. Home is 10, Guides is 15, the space guide is 20, About is 30. |
 | `affiliate` | no | `true` if the page contains affiliate links. Default `false`. The build then inserts the disclosure notice. |
 | `sitemap` | no | `false` to omit the page. Default `true`. The 404 page is omitted. |
 | `robots` | no | Defaults to `index, follow`, or `noindex, follow` for `404.html`. |
@@ -37,6 +37,12 @@ Unknown keys fail the build. That is deliberate, so a typo is not ignored.
 ## 3. Write the page
 
 Use ordinary HTML after the frontmatter: one `h1`, then `h2` sections. The layout already provides the header, footer, skip link, and main landmark.
+
+### Guides index
+
+`/guides/` lists every published page whose `schema` is `article`. The build replaces `<div id="guide-index"></div>` on that page with each article’s title and description. Order is `published`, then `path`. Adding an article does not require an edit to `content/pages/guides.html`.
+
+The home page, about, privacy, affiliate disclosure, and the 404 page are not articles, so they are not listed. The template is not built. A draft is not built, so it is not listed. The guides page itself is `schema: webpage`. Do not hand-write the list, and do not put affiliate links on it.
 
 Internal links start at the site root, with no base path:
 
@@ -124,6 +130,7 @@ Read the warning lines. A warning is not proof the URL is alive. Open it.
 - `sitemap.xml` and `robots.txt` (generated)
 - canonical URLs, Open Graph tags, and JSON-LD (generated from the frontmatter and `site.config.json`)
 - the header and footer (edit `layout/base.html` only when the chrome itself should change)
+- the list on `/guides/` (generated from `schema: article` pages)
 
 ## 7. Before you finish
 
